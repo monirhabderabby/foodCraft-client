@@ -18,7 +18,7 @@ module.exports = {
             },
             fontFamily: {
                 Inter: ["Inter", "sans-serif"],
-                serif: ["Roboto Serif", "serif"],
+                serif: ["Roboto-Serif", "serif"],
             },
             fontWeight: {
                 300: "300",
