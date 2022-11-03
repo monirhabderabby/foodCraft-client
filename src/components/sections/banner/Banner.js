@@ -1,4 +1,6 @@
 import React from "react";
+import deliverIcon from "../../../Assets/icons/Orion_delivery-truck 1.svg";
+import shopingIcon from "../../../Assets/icons/Orion_shipping-address 1.svg";
 import banner from "../../../Assets/images/emotive-beautiful-lady-bites-delicious-pizza-looks-directly-has-time-snack-visits-pizzeria-surprised-with-low-prices-models-yellow-wall-people-fast-food-nutrition-transformed 1.png";
 import { Button } from "../../shared/button/Button";
 
@@ -21,7 +23,18 @@ export const Banner = () => {
                 </div>
                 <div>
                     <div className=" h-[300px] w-[300px] md:h-[500px] md:w-[488px] rounded-full bg-red relative">
-                        <img className="absolute bottom-0 h-[330px] w-[300px] md:h-[540px] md:w-[488px] rounded-full" src={banner} alt="banner" />
+                        <img className="absolute bottom-0 h-[330px] w-[300px] md:h-[580px] md:w-[488px] rounded-full" src={banner} alt="banner" />
+
+                        {/*Easy shopping notify*/}
+                        <div className="w-[162px] h-[51px] bg-white rounded-[25.5px] shadow-[0px_20px_70px_rgba(0,0,0,0.9)] flex items-center justify-center absolute top-[35%] -left-[80px]">
+                            <img src={shopingIcon} alt="shop" />
+                            <span className="text-light-gray text-14px font-600 font-Inter ml-1">Easy Shopping</span>
+                        </div>
+                        {/*faster delivery notify*/}
+                        <div className="w-[162px] h-[51px] bg-white rounded-[25.5px] shadow-[0px_20px_70px_rgba(0,0,0,0.9)] flex items-center justify-center absolute top-[8%] -right-12">
+                            <img src={deliverIcon} alt="shop" />
+                            <span className="text-light-gray text-14px font-600 font-Inter ml-1">Faster Delivery</span>
+                        </div>
                     </div>
                 </div>
             </section>
