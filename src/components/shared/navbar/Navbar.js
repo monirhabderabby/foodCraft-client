@@ -6,7 +6,7 @@ export const Navbar = () => {
     const [open, setOpen] = useState(false);
     return (
         <div className="max-w-[1300px] mx-auto">
-            <section className="justify-between h-[80px] items-center hidden md:flex">
+            <section className="justify-between h-[80px] items-center hidden lg:flex">
                 <div>
                     <h1 className="font-600 font-Inter text-[24px] leading-34px text-red">Food Craft</h1>
                 </div>
@@ -37,7 +37,7 @@ export const Navbar = () => {
                 </div>
             </section>
             {/*mobile device navabr*/}
-            <section className="flex justify-between items-center h-[60px] md:hidden px-3 w-full z-50">
+            <section className="flex justify-between items-center h-[60px] lg:hidden px-3 w-full z-50">
                 <div>
                     <h1 className="font-600 font-Inter text-[16px] leading-34px text-red">Food Craft</h1>
                 </div>
@@ -52,7 +52,11 @@ export const Navbar = () => {
                 </div>
             </section>
             {/*navlink for mbile device*/}
-            <div className={`bg-red h-auto ${open ? " translate-y-0" : "translate-y-[-130%]"} transition-[0.3s] -z-30`}>
+            <div
+                className={`bg-red h-auto ${open ? "block" : "hidden"} lg:hidden ${
+                    open ? " translate-y-0" : "translate-y-[-130%]"
+                } transition-[0.3s] -z-30`}
+            >
                 <ul className="flex flex-col gap-y-[10px] px-3 py-3 w-full">
                     <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">Home</li>
                     <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">About</li>
