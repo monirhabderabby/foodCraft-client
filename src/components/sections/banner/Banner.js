@@ -1,4 +1,5 @@
 import React from "react";
+import "../../../App.css";
 import deliverIcon from "../../../Assets/icons/Orion_delivery-truck 1.svg";
 import shopingIcon from "../../../Assets/icons/Orion_shipping-address 1.svg";
 import banner from "../../../Assets/images/emotive-beautiful-lady-bites-delicious-pizza-looks-directly-has-time-snack-visits-pizzeria-surprised-with-low-prices-models-yellow-wall-people-fast-food-nutrition-transformed 1.png";
@@ -6,7 +7,7 @@ import { Button } from "../../shared/button/Button";
 
 export const Banner = () => {
     return (
-        <div className="h-[calc(100vh-80px)] w-full max-w-[1300px] mx-auto">
+        <div className="h-[calc(100vh-80px)] w-full max-w-[1300px] mx-auto relative">
             <section className="h-[calc(100vh-80px)] flex flex-col-reverse lg:flex-row justify-around py-6 lg:py-0 lg:justify-between items-center">
                 <div className="mt-[20px]">
                     <div className="px-3 md:px-0 md:w-[554px] flex flex-col gap-y-[30px]">
