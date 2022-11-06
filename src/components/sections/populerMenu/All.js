@@ -4,7 +4,7 @@ import berger from "../../../Assets/images/berger.png";
 export const All = () => {
     const products = [1, 2, 3];
     return (
-        <div className="mt-[40px] grid grid-cols-1 md:grid-cols-3">
+        <div className="mt-[40px] grid grid-cols-1 md:grid-cols-3 gap-y-[20px]">
             {products?.map(product => {
                 return (
                     <div className="w-[370px] h-[423px] bg-white rounded-21px p-[20px]">

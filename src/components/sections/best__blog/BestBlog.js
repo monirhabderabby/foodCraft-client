@@ -10,7 +10,7 @@ export const BestBlog = () => {
             <section className="w-full h-full flex flex-col lg:flex-row justify-between items-center px-3 lg:px-0">
                 <div className="relative">
                     <img className="w-full mb-[20px] lg:mb-0" src={img} alt="" />
-                    <div className="absolute w-[256px] h-[125px] bg-white shadow-[0px_20px_70px_rgba(0,0,0,0.09)] rounded-[10px] -right-[100px] bottom-11">
+                    <div className="absolute w-[256px] h-[125px] bg-white shadow-[0px_20px_70px_rgba(0,0,0,0.09)] rounded-[10px] right-0 lg:-right-[100px] bottom-11">
                         <div className="flex h-full gap-x-[10px] items-center justify-center">
                             <div>
                                 <img src={pizza} alt="" />

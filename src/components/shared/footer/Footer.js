@@ -96,9 +96,9 @@ export const Footer = () => {
                     <div class="w-full md:w-4/12 px-4 mx-auto text-center">
                         <div class="text-sm text-blueGray-500 font-semibold py-1">
                             Copyright © <span id="get-current-year">2021</span>
-                            <span> Notus JS by</span>
+                            <span> Food Craft by</span>
                             <a href="https://www.creative-tim.com?ref=njs-profile" class="text-blueGray-500 hover:text-blueGray-800">
-                                Creative Tim
+                                Monir Hossain
                             </a>
                             .
                         </div>

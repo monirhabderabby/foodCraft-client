@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const CTA = () => {
     return (
         <div className="w-full max-w-[1170px] mx-auto my-[60px] lg:my-[160px]">
-            <div className="bg-red h-[445px] rounded-[47px] flex flex-col gap-y-[40px] items-center p-[75px]">
+            <div className="bg-red h-auto lg:h-[445px] rounded-none lg:rounded-[47px] flex flex-col gap-y-[40px] items-center p-[35px] lg:p-[75px]">
                 <h1 className="text-48px font-600 leading-58px text-white font-serif text-center">
                     Get Up To 50% Off When Making Transactions On Our App
                 </h1>
