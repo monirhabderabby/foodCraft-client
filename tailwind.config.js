@@ -15,6 +15,7 @@ module.exports = {
                 "navy-blue": "#021A49",
                 "light-red": "#FEF4F4",
                 "light-gray": "#686868",
+                yellow: "#FDC55E",
             },
             fontFamily: {
                 Inter: ["Inter", "sans-serif"],
