@@ -2,7 +2,8 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
-import React from "react";
+import React, { useCallback } from "react";
+import { useDropzone } from "react-dropzone";
 import { useNavigate } from "react-router-dom";
 import loginImg from "../../../../Assets/images/undraw_chef_cu-0-r (1).svg";
 import { Navbar } from "../../../shared/navbar/Navbar";
@@ -30,6 +31,11 @@ export const SignUp = () => {
         event.preventDefault();
     };
 
+    const onDrop = useCallback(acceptedFiles => {
+        // Do something with the files
+    }, []);
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+
     const handleLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -48,7 +54,7 @@ export const SignUp = () => {
                         <div className="max-w-[396px]">
                             <h1 className="text-[50px] text-navy-blue leading-[75px] font-600">Register to</h1>
                             <p className="text-[35px] leading-[52px] text-light-gray font-500">Food Craft</p>
-                            <p className="text-[16px] leading-[24px] font-Inter font-400 ">
+                            <p className="text-[16px] leading-[24px] font-Inter font-400 mt-[33px] md:mt-[53px]">
                                 Already have an account ? <br /> you can <span> </span>
                                 <button className="text-[#4D47C3] font-600 z-50" onClick={() => navigate("/login")}>
                                     Login here!
@@ -61,6 +67,7 @@ export const SignUp = () => {
                         <h3 className="mb-[28px] text-[30px] leading-[45px] font-serif font-500 text-navy-blue">Register</h3>
                         <form className="w-full lg:[350px]" onSubmit={handleLogin}>
                             <Stack spacing={"38px"} direction="column">
+                                <TextField name="name" type="email" className="w-full" required id="outlined-required" label="Full Name" />
                                 <TextField name="email" type="email" className="w-full" required id="outlined-required" label="Email" />
                                 <FormControl sx={{ width: "100%" }} variant="outlined">
                                     <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
@@ -85,6 +92,13 @@ export const SignUp = () => {
                                         label="Password"
                                     />
                                 </FormControl>
+                                <div
+                                    {...getRootProps()}
+                                    className="h-[55px] bg-white border-[0.5px] border-light-gray flex items-center justify-center rounded-[4px] cursor-pointer"
+                                >
+                                    <input {...getInputProps()} />
+                                    {isDragActive ? <p>Drop the files here ...</p> : <p>Drag 'n' drop photo, or click to select photo</p>}
+                                </div>
                             </Stack>
                             <div className="flex justify-end mt-[17px]">
                                 <button className="text-[#B0B0B0] text-14px font-400 font-Inter hover:text-black">Forget password</button>

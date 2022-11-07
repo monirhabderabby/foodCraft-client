@@ -46,7 +46,7 @@ export const Login = () => {
                         <div className="max-w-[396px]">
                             <h1 className="text-[50px] text-navy-blue leading-[75px] font-600">Sign in to</h1>
                             <p className="text-[35px] leading-[52px] text-light-gray font-500">Food Craft</p>
-                            <p className="text-[16px] leading-[24px] font-Inter font-400 ">
+                            <p className="text-[16px] leading-[24px] font-Inter font-400 mt-[33px] lg:mt-[53px]">
                                 If you dont't have an account register <br /> you can <span> </span>
                                 <Link to="/signUp" className="text-[#4D47C3] font-600 z-50">
                                     Register here!
