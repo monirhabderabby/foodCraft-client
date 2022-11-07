@@ -2,10 +2,11 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
-import React, { useCallback } from "react";
-import { useDropzone } from "react-dropzone";
+import React from "react";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import loginImg from "../../../../Assets/images/undraw_chef_cu-0-r (1).svg";
+import { auth } from "../../../../firebase/firebase.init";
 import { Navbar } from "../../../shared/navbar/Navbar";
 
 export const SignUp = () => {
@@ -13,6 +14,9 @@ export const SignUp = () => {
         password: "",
         showPassword: false,
     });
+
+    const [createUserWithEmailAndPassword, user, loading] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating] = useUpdateProfile(auth);
 
     const navigate = useNavigate();
 
@@ -31,19 +35,22 @@ export const SignUp = () => {
         event.preventDefault();
     };
 
-    const onDrop = useCallback(acceptedFiles => {
-        // Do something with the files
-    }, []);
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+    if (loading || updating) {
+        return;
+    }
 
-    const handleLogin = e => {
+    const handleLogin = async e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log({
-            email,
-            password,
-        });
+        const name = e.target.name.value;
+
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+
+        if (user) {
+            console.log(user);
+        }
     };
     return (
         <div>
@@ -67,7 +74,7 @@ export const SignUp = () => {
                         <h3 className="mb-[28px] text-[30px] leading-[45px] font-serif font-500 text-navy-blue">Register</h3>
                         <form className="w-full lg:[350px]" onSubmit={handleLogin}>
                             <Stack spacing={"38px"} direction="column">
-                                <TextField name="name" type="email" className="w-full" required id="outlined-required" label="Full Name" />
+                                <TextField name="name" type="text" className="w-full" required id="outlined-requireddfd" label="Full Name" />
                                 <TextField name="email" type="email" className="w-full" required id="outlined-required" label="Email" />
                                 <FormControl sx={{ width: "100%" }} variant="outlined">
                                     <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
@@ -92,20 +99,13 @@ export const SignUp = () => {
                                         label="Password"
                                     />
                                 </FormControl>
-                                <div
-                                    {...getRootProps()}
-                                    className="h-[55px] bg-white border-[0.5px] border-light-gray flex items-center justify-center rounded-[4px] cursor-pointer"
-                                >
-                                    <input {...getInputProps()} />
-                                    {isDragActive ? <p>Drop the files here ...</p> : <p>Drag 'n' drop photo, or click to select photo</p>}
-                                </div>
                             </Stack>
                             <div className="flex justify-end mt-[17px]">
                                 <button className="text-[#B0B0B0] text-14px font-400 font-Inter hover:text-black">Forget password</button>
                             </div>
                             <input
                                 type="submit"
-                                value="Login"
+                                value="Register"
                                 className="bg-red w-full h-[55px] mt-[38px] rounded-[4px] cursor-pointer text-white font-Inter"
                             />
                         </form>

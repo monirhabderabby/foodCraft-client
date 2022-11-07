@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { default as cart, default as shopping } from "../../../Assets/icons/Orion_shopping-basket 1.svg";
 import { Button } from "../button/Button";
@@ -49,7 +50,24 @@ export const Navbar = () => {
                 </div>
             </section>
             {/*navlink for mbile device*/}
-            <div
+            {open && (
+                <div className={`fixed right-0 top-0 w-full h-screen lg:hidden bg-black/90 z-50`}>
+                    <div className="w-full flex justify-end">
+                        <AiOutlineClose className="text-white text-[24px] mt-4 mr-4" onClick={() => setOpen(!open)} />
+                    </div>
+                    <ul className="flex flex-col gap-y-[10px] px-3 py-3 w-full">
+                        <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">Home</li>
+                        <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">About</li>
+                        <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">Deliver</li>
+                        <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">Service</li>
+                        <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">Restuarants</li>
+                        <li>
+                            <button className="bg-white w-full py-[9px] px-[27px] font-Inter text-20px text-red rounded-sm">Login</button>
+                        </li>
+                    </ul>
+                </div>
+            )}
+            {/* <div
                 className={`bg-red h-auto ${open ? "block" : "hidden"} lg:hidden ${
                     open ? " translate-y-0" : "translate-y-[-130%]"
                 } transition-[0.3s] -z-30`}
@@ -64,7 +82,7 @@ export const Navbar = () => {
                         <button className="bg-white w-full py-[9px] px-[27px] font-Inter text-20px text-red rounded-sm">Login</button>
                     </li>
                 </ul>
-            </div>
+            </div> */}
         </div>
     );
 };
