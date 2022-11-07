@@ -1,6 +1,8 @@
 import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import { Login } from "./components/pages/Authentications/Login/Login";
+import { SignUp } from "./components/pages/Authentications/SignUp/SignUp";
 import { All } from "./components/sections/populerMenu/All";
 import { Beverage } from "./components/sections/populerMenu/Beverage";
 import { Breakfast } from "./components/sections/populerMenu/Breakfast";
@@ -20,6 +22,8 @@ function App() {
                 <Route path="deserts" element={<Deserts />} />
                 <Route path="beverage" element={<Beverage />} />
             </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signUp" element={<SignUp />} />
         </Routes>
     );
 }

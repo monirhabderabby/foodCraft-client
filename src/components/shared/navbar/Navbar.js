@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { default as cart, default as shopping } from "../../../Assets/icons/Orion_shopping-basket 1.svg";
 import { Button } from "../button/Button";
 
@@ -6,7 +7,7 @@ export const Navbar = () => {
     const [open, setOpen] = useState(false);
     return (
         <div className="max-w-[1300px] mx-auto">
-            <section className="justify-between h-[80px] items-center hidden lg:flex">
+            <section className="justify-between h-[80px] items-center hidden lg:flex ">
                 <div>
                     <h1 className="font-600 font-Inter text-[24px] leading-34px text-red">Food Craft</h1>
                 </div>
@@ -25,7 +26,9 @@ export const Navbar = () => {
                             <img src={cart} alt="cart" />
                         </li>
                         <li>
-                            <Button>Login</Button>
+                            <Link to="/login">
+                                <Button>Login</Button>
+                            </Link>
                         </li>
                     </ul>
                 </div>
