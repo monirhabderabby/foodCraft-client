@@ -1,11 +1,35 @@
+import { Avatar } from "@mui/material";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { signOut } from "firebase/auth";
 import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { default as cart, default as shopping } from "../../../Assets/icons/Orion_shopping-basket 1.svg";
+import { auth } from "../../../firebase/firebase.init";
 import { Button } from "../button/Button";
 
 export const Navbar = () => {
     const [open, setOpen] = useState(false);
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const openMenu = Boolean(anchorEl);
+    const handleClick = event => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const [user, loading, error] = useAuthState(auth);
+
+    if (loading || error) return;
+
+    if (user) {
+        console.log(user);
+    }
+
     return (
         <div className="max-w-[1300px] mx-auto">
             <section className="justify-between h-[80px] items-center hidden lg:flex ">
@@ -27,9 +51,37 @@ export const Navbar = () => {
                             <img src={cart} alt="cart" />
                         </li>
                         <li>
-                            <Link to="/login">
-                                <Button>Login</Button>
-                            </Link>
+                            {user ? (
+                                <div>
+                                    <Avatar
+                                        alt="Remy Sharp"
+                                        src="/static/images/avatar/1.jpg"
+                                        id="basic-button"
+                                        aria-controls={openMenu ? "basic-menu" : undefined}
+                                        aria-haspopup="true"
+                                        aria-expanded={openMenu ? "true" : undefined}
+                                        onClick={handleClick}
+                                    />
+                                    <Menu
+                                        id="basic-menu"
+                                        anchorEl={anchorEl}
+                                        open={openMenu}
+                                        onClose={handleClose}
+                                        MenuListProps={{
+                                            "aria-labelledby": "basic-button",
+                                        }}
+                                    >
+                                        <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                        <MenuItem onClick={handleClose}>My account</MenuItem>
+                                        <MenuItem onClick={handleClose}>My Orders</MenuItem>
+                                        <MenuItem onClick={() => signOut(auth)}>Logout</MenuItem>
+                                    </Menu>
+                                </div>
+                            ) : (
+                                <Link to="/login">
+                                    <Button>Login</Button>
+                                </Link>
+                            )}
                         </li>
                     </ul>
                 </div>
