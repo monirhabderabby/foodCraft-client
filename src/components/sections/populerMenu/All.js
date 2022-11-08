@@ -41,7 +41,7 @@ export const All = () => {
                             <div className="mt-[12px] flex justify-between">
                                 <span className="font-Inter font-600 text-[24px] leading-34px text-yellow">$15.0</span>
                                 <button className="border-[1px] border-light-gray px-[22px] bg-transparent py-[10px] rounded-21px relative hover:border-yellow transition-[0.3s]">
-                                    <span className=" bg-transparent z-50 ">Add to Cart</span>
+                                    <span className=" bg-transparent z-50">Add to Cart</span>
                                 </button>
                             </div>
                         </div>

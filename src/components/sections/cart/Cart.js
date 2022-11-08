@@ -1,6 +1,6 @@
 import { Stack } from "@mui/system";
 import React from "react";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineClose } from "react-icons/ai";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import img from "../../../Assets/images/berger.png";
@@ -26,171 +26,12 @@ export const Cart = () => {
                 <Stack spacing={2} direction="column">
                     <div className="flex justify-between items-center">
                         <div className="flex items-center gap-x-[5px]">
+                            <AiOutlineClose className="mr-2" />
                             <div>
-                                <img className="w-[70px]" src={img} alt="berger" />
+                                <img className="w-[50px]" src={img} alt="berger" />
                             </div>
                             <div className="flex flex-col justify-between">
-                                <h5 className="">Chicken Berger</h5>
-                                <p>$2.5</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-x-[7px] px-[5px]">
-                            <CiCirclePlus className="text-[20px]" />
-                            <p className="text-[20px]">5</p>
-                            <CiCircleMinus className="text-[20px]" />
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-x-[5px]">
-                            <div>
-                                <img className="w-[70px]" src={img} alt="berger" />
-                            </div>
-                            <div className="flex flex-col justify-between">
-                                <h5 className="">Chicken Berger</h5>
-                                <p>$2.5</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-x-[7px] px-[5px]">
-                            <CiCirclePlus className="text-[20px]" />
-                            <p className="text-[20px]">5</p>
-                            <CiCircleMinus className="text-[20px]" />
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-x-[5px]">
-                            <div>
-                                <img className="w-[70px]" src={img} alt="berger" />
-                            </div>
-                            <div className="flex flex-col justify-between">
-                                <h5 className="">Chicken Berger</h5>
-                                <p>$2.5</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-x-[7px] px-[5px]">
-                            <CiCirclePlus className="text-[20px]" />
-                            <p className="text-[20px]">5</p>
-                            <CiCircleMinus className="text-[20px]" />
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-x-[5px]">
-                            <div>
-                                <img className="w-[70px]" src={img} alt="berger" />
-                            </div>
-                            <div className="flex flex-col justify-between">
-                                <h5 className="">Chicken Berger</h5>
-                                <p>$2.5</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-x-[7px] px-[5px]">
-                            <CiCirclePlus className="text-[20px]" />
-                            <p className="text-[20px]">5</p>
-                            <CiCircleMinus className="text-[20px]" />
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-x-[5px]">
-                            <div>
-                                <img className="w-[70px]" src={img} alt="berger" />
-                            </div>
-                            <div className="flex flex-col justify-between">
-                                <h5 className="">Chicken Berger</h5>
-                                <p>$2.5</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-x-[7px] px-[5px]">
-                            <CiCirclePlus className="text-[20px]" />
-                            <p className="text-[20px]">5</p>
-                            <CiCircleMinus className="text-[20px]" />
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-x-[5px]">
-                            <div>
-                                <img className="w-[70px]" src={img} alt="berger" />
-                            </div>
-                            <div className="flex flex-col justify-between">
-                                <h5 className="">Chicken Berger</h5>
-                                <p>$2.5</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-x-[7px] px-[5px]">
-                            <CiCirclePlus className="text-[20px]" />
-                            <p className="text-[20px]">5</p>
-                            <CiCircleMinus className="text-[20px]" />
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-x-[5px]">
-                            <div>
-                                <img className="w-[70px]" src={img} alt="berger" />
-                            </div>
-                            <div className="flex flex-col justify-between">
-                                <h5 className="">Chicken Berger</h5>
-                                <p>$2.5</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-x-[7px] px-[5px]">
-                            <CiCirclePlus className="text-[20px]" />
-                            <p className="text-[20px]">5</p>
-                            <CiCircleMinus className="text-[20px]" />
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-x-[5px]">
-                            <div>
-                                <img className="w-[70px]" src={img} alt="berger" />
-                            </div>
-                            <div className="flex flex-col justify-between">
-                                <h5 className="">Chicken Berger</h5>
-                                <p>$2.5</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-x-[7px] px-[5px]">
-                            <CiCirclePlus className="text-[20px]" />
-                            <p className="text-[20px]">5</p>
-                            <CiCircleMinus className="text-[20px]" />
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-x-[5px]">
-                            <div>
-                                <img className="w-[70px]" src={img} alt="berger" />
-                            </div>
-                            <div className="flex flex-col justify-between">
-                                <h5 className="">Chicken Berger</h5>
-                                <p>$2.5</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-x-[7px] px-[5px]">
-                            <CiCirclePlus className="text-[20px]" />
-                            <p className="text-[20px]">5</p>
-                            <CiCircleMinus className="text-[20px]" />
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-x-[5px]">
-                            <div>
-                                <img className="w-[70px]" src={img} alt="berger" />
-                            </div>
-                            <div className="flex flex-col justify-between">
-                                <h5 className="">Chicken Berger</h5>
-                                <p>$2.5</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-x-[7px] px-[5px]">
-                            <CiCirclePlus className="text-[20px]" />
-                            <p className="text-[20px]">5</p>
-                            <CiCircleMinus className="text-[20px]" />
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-x-[5px]">
-                            <div>
-                                <img className="w-[70px]" src={img} alt="berger" />
-                            </div>
-                            <div className="flex flex-col justify-between">
-                                <h5 className="">Chicken Berger</h5>
+                                <h5 className="text-[12px]">Chicken Berger</h5>
                                 <p>$2.5</p>
                             </div>
                         </div>
