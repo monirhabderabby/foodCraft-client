@@ -3,8 +3,10 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
 import loginImg from "../../../../Assets/images/undraw_chef_cu-0-r (1).svg";
+import { auth } from "../../../../firebase/firebase.init";
 import { Navbar } from "../../../shared/navbar/Navbar";
 
 export const Login = () => {
@@ -12,6 +14,10 @@ export const Login = () => {
         password: "",
         showPassword: false,
     });
+
+    const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+
+    const navigate = useNavigate();
 
     const handleChange = prop => event => {
         setValues({ ...values, [prop]: event.target.value });
@@ -28,14 +34,12 @@ export const Login = () => {
         event.preventDefault();
     };
 
-    const handleLogin = e => {
+    const handleLogin = async e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log({
-            email,
-            password,
-        });
+        await signInWithEmailAndPassword(email, password);
+        navigate("/");
     };
     return (
         <div>

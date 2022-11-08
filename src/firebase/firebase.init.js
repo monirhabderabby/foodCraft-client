@@ -7,12 +7,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAtdq050_iYkHDNR0UuSUC3NckHAgRXNT0",
-    authDomain: "foodcraft-8d822.firebaseapp.com",
-    projectId: "foodcraft-8d822",
-    storageBucket: "foodcraft-8d822.appspot.com",
-    messagingSenderId: "717433154792",
-    appId: "1:717433154792:web:9481130b4a7c62c7b66d5d",
+    apiKey: "AIzaSyBUkGKbmC9S4rcTVKU7TEbEvnfJDP8iWeI",
+    authDomain: "foodcraft-631c7.firebaseapp.com",
+    projectId: "foodcraft-631c7",
+    storageBucket: "foodcraft-631c7.appspot.com",
+    messagingSenderId: "327498043489",
+    appId: "1:327498043489:web:32045733c02d55489ada20",
 };
 
 // Initialize Firebase

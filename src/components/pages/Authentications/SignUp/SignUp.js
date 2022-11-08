@@ -1,5 +1,4 @@
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import React from "react";
@@ -15,7 +14,7 @@ export const SignUp = () => {
         showPassword: false,
     });
 
-    const [createUserWithEmailAndPassword, user, loading] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, loading] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating] = useUpdateProfile(auth);
 
     const navigate = useNavigate();
@@ -48,9 +47,7 @@ export const SignUp = () => {
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
 
-        if (user) {
-            console.log(user);
-        }
+        navigate("/");
     };
     return (
         <div>
@@ -76,7 +73,7 @@ export const SignUp = () => {
                             <Stack spacing={"38px"} direction="column">
                                 <TextField name="name" type="text" className="w-full" required id="outlined-requireddfd" label="Full Name" />
                                 <TextField name="email" type="email" className="w-full" required id="outlined-required" label="Email" />
-                                <FormControl sx={{ width: "100%" }} variant="outlined">
+                                <FormControl sx={{ width: "100%" }} variant="outlined" onClick={e => e.preventDefault()}>
                                     <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                                     <OutlinedInput
                                         id="outlined-adornment-password"

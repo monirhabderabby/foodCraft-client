@@ -5,13 +5,16 @@ import { signOut } from "firebase/auth";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { AiOutlineClose } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { default as cart, default as shopping } from "../../../Assets/icons/Orion_shopping-basket 1.svg";
 import { auth } from "../../../firebase/firebase.init";
+import { cartToggle } from "../../../Redux/features/carts/cartSlice";
 import { Button } from "../button/Button";
 
 export const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const dispatch = useDispatch();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const openMenu = Boolean(anchorEl);
@@ -25,10 +28,6 @@ export const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
 
     if (loading || error) return;
-
-    if (user) {
-        console.log(user);
-    }
 
     return (
         <div className="max-w-[1300px] mx-auto">
@@ -48,7 +47,7 @@ export const Navbar = () => {
                 <div>
                     <ul className="flex items-center gap-x-[13px]">
                         <li>
-                            <img src={cart} alt="cart" />
+                            <img src={cart} alt="cart" onClick={() => dispatch(cartToggle())} />
                         </li>
                         <li>
                             {user ? (
@@ -92,7 +91,7 @@ export const Navbar = () => {
                     <h1 className="font-600 font-Inter text-[16px] leading-34px text-red">Food Craft</h1>
                 </div>
                 <div className="flex items-center h-full gap-x-[10px]">
-                    <img src={shopping} className="h-[24px]" alt="shopping" />
+                    <img src={shopping} className="h-[24px]" alt="shopping" onClick={() => dispatch(cartToggle())} />
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" onClick={() => setOpen(!open)}>
                         <path
                             fill="#000"
@@ -119,22 +118,7 @@ export const Navbar = () => {
                     </ul>
                 </div>
             )}
-            {/* <div
-                className={`bg-red h-auto ${open ? "block" : "hidden"} lg:hidden ${
-                    open ? " translate-y-0" : "translate-y-[-130%]"
-                } transition-[0.3s] -z-30`}
-            >
-                <ul className="flex flex-col gap-y-[10px] px-3 py-3 w-full">
-                    <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">Home</li>
-                    <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">About</li>
-                    <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">Deliver</li>
-                    <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">Service</li>
-                    <li className="text-[20px] cursor-pointer leading-32px font-Inter font-400 text-white">Restuarants</li>
-                    <li>
-                        <button className="bg-white w-full py-[9px] px-[27px] font-Inter text-20px text-red rounded-sm">Login</button>
-                    </li>
-                </ul>
-            </div> */}
+            {/* {cartShow && <Cart />} */}
         </div>
     );
 };

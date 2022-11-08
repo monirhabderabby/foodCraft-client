@@ -1,6 +1,7 @@
 import React from "react";
 import { Banner } from "../../sections/banner/Banner";
 import { BestBlog } from "../../sections/best__blog/BestBlog";
+import { Cart } from "../../sections/cart/Cart";
 import { CTA } from "../../sections/CTA/CTA";
 import { Features } from "../../sections/featues/features";
 import { PopulerMenu } from "../../sections/populerMenu/PopulerMenu";
@@ -21,6 +22,7 @@ const Home = () => {
             <CTA />
             <Testmonials />
             <Footer />
+            <Cart />
         </>
     );
 };
