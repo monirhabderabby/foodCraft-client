@@ -34,10 +34,6 @@ export const SignUp = () => {
         event.preventDefault();
     };
 
-    if (loading || updating) {
-        return;
-    }
-
     const handleLogin = async e => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -102,7 +98,7 @@ export const SignUp = () => {
                             </div>
                             <input
                                 type="submit"
-                                value="Register"
+                                value={loading && updating ? "Loading..." : "Register"}
                                 className="bg-red w-full h-[55px] mt-[38px] rounded-[4px] cursor-pointer text-white font-Inter"
                             />
                         </form>

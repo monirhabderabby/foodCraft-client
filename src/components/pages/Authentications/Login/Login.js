@@ -15,7 +15,7 @@ export const Login = () => {
         showPassword: false,
     });
 
-    const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, loading] = useSignInWithEmailAndPassword(auth);
 
     const navigate = useNavigate();
 
@@ -93,7 +93,7 @@ export const Login = () => {
                             </div>
                             <input
                                 type="submit"
-                                value="Login"
+                                value={loading ? "Loading..." : "Login"}
                                 className="bg-red w-full h-[55px] mt-[38px] rounded-[4px] cursor-pointer text-white font-Inter"
                             />
                         </form>
